@@ -4,7 +4,12 @@
   "description": "Fake Stripe API fixture for testing",
   "module": "lib/index.ts",
   "type": "module",
-  "files": ["dist", "lib", "routes", "winterspec.config.ts"],
+  "files": [
+    "dist",
+    "lib",
+    "routes",
+    "winterspec.config.ts"
+  ],
   "main": "lib/index.ts",
   "types": "lib/types.ts",
   "exports": {
@@ -16,9 +21,9 @@
     "./types": "./lib/types.ts"
   },
   "scripts": {
-    "start": "winterspec dev",
-    "dev": "winterspec dev",
-    "build": "winterspec bundle -o dist/bundle.js",
+    "start": "node init && winterspec dev",
+    "dev": "node init && winterspec dev",
+    "build": "node init && winterspec bundle -o dist/bundle.js",
     "prepare": "bun run build",
     "test": "bun test",
     "format": "biome format --write .",
@@ -32,6 +37,8 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-fetch": "^3.3.2",
     "winterspec": "^0.0.114",
     "zod": "^3.23.8",
     "zustand": "^5.0.13",
